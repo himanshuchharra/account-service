@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+  <link href="../static/signup.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation" ><a href="/main">Home</a></li>
+        <li role="presentation"><a href="/signin">Sign In</a></li>
+        <li role="presentation" class="active"><a href="#">Sign Up</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="jumbotron">
+    <h1>Signup</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form class="form-signin" action="/signup" method="post">
+      <div class="container">
+
+      <label for="inputID">User ID</label>
+      <input type="text" name="userid" id="inputID" class="form-control" placeholder="User ID" required autofocus><br>
+
+      <label for="inputName">Name</label>
+      <input type="text" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus><br>
+      <label for="inputPassword">Password</label>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus>
+        </div>
+
+      <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" onclick = 'this.form.submit();' type="button">Signup</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; Algoscale</p>
+  </footer>
+
+</div>
+</body>
+</html>
